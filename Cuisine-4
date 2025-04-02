@@ -1,0 +1,163 @@
+<!-- CUSINE -->
+<div class="cuisine-container">
+    <style>
+        .cuisine-container {
+            background-color: white;
+            text-align: left;
+            padding: min(calc(10 * 1440px / 100), 10vw) min(calc(10 * 1440px / 100), 10vw);
+            width: 100vw; /* Ensure the container spans the full width of the viewport */
+            max-width: 1440px;
+            justify-self: center;
+        }
+
+        .cuisine-content {
+            width: 100%; /* Ensure full width for content */
+            margin: 0 auto; /* Center the content */
+        }
+
+        .cuisine-container h2 {
+            font-family: 'Federo';
+            font-weight: 400;
+            font-size: min(calc(2 * 1440px / 100), 2vw);
+            letter-spacing: min(calc(0.4 * 1440px / 100), 0.4vw);
+            color: #496F8B;
+            color: #000000;
+            justify-self: center;
+        }
+
+        .cuisine-container h3 {
+            font-family: 'Zen Old Mincho';
+            font-weight: 900;
+            display: flex;
+            text-align: left;
+            justify-content: center;
+            font-size: min(calc(2 * 1440px / 100), 2vw);
+            letter-spacing: min(calc(0.4 * 1440px / 100), 0.4vw);
+            color: #3E131C;
+            padding-bottom: min(calc(2 * 1440px / 100), 2vw);
+        }
+
+        .cuisine-dining {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns for side-by-side layout */
+            gap: min(calc(2 * 1440px / 100), 2vw);
+        }
+
+        .cuisine-dining-element {
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: left;
+            gap: min(calc(2 * 1440px / 100), 2vw);
+        }
+
+        .cuisine-subtitle {
+            display: flex;
+            min-height: min(calc(5 * 1440px / 100), 5vw);
+            font-family: 'Federo';
+            font-weight: 400;
+            font-size: min(calc(2 * 1440px / 100), 2vw);
+            align-items: flex-end;
+            text-align: left;
+            letter-spacing: 0.12em;
+            color: #3E131C;
+        }
+
+        .cuisine-text {
+            font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+            line-height: 160%;
+            letter-spacing: 0.2em; 
+            color: #000000;
+        }
+
+        .cuisine-image-main-dining, .cuisine-image-teppan-dining, .cuisine-image-kinoko-cuisine, 
+        .cuisine-image-artisanal-sake {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .cuisine-container {
+                display: flex; /* Use Flexbox for stacking */
+                flex-direction: column; /* Stack text and image vertically */
+                padding: 10vw 4vw;
+                gap: 4vw;
+            }
+
+            .cuisine-container h2 {
+                font-size: 1.2rem;
+                text-align: center;
+                align-self: center; /* Ensure title is centered in its container */
+                justify-self: center;
+            }
+
+            .cuisine-container h3 {
+                font-size: 1rem;
+                align-self: center; /* Ensure title is centered in its container */
+                margin: 0; /* Remove any default margins */
+            }
+
+            .cuisine-text {
+                font-size: 1rem;
+            }
+
+            .cuisine-image {
+                order: 2;
+            }
+
+            .cuisine-dining {
+                display: block;
+                padding: 0;
+            }
+
+            .cuisine-dining-element {
+                gap: 1vw;
+                margin-bottom: 5vw; 
+            }
+
+            .cuisine-content {
+                display: grid;
+                flex-direction: column; /* Stack text items vertically */
+                justify-content: center; /* Vertically center the content */
+                gap: 0px; /* Add spacing within the text content */
+                height: auto; /* Allow content to determine height */
+            }
+            
+            .cuisine-subtitle {
+                display: initial;
+                font-size: 1.1rem;
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+
+    <div class="cuisine-content">
+        <h2>HEALTHY CUISINE</h2>
+        <h3>海神人の宿を彩るレストランデザイン</h3>
+        <div class="cuisine-dining">
+            <div class="cuisine-dining-element">
+                <div class="cuisine-subtitle">MAIN DINING |&nbsp<span class="kanji-font"> 朝廷の宴</span></div>
+                <img class= "cuisine-image-main-dining" src="wp-content/plugins/my-snow-monkey/assets/images/main-dining.png" alt="Main Dining">
+                <p class="cuisine-text">海人族が朝廷に献上したとされる「贄（にえ）」の文化をテーマに、繊細で雅（みやび）な海の幸を再現。美しい盛り付けと、洗練された調理技術で、現代の「宮中料理」を堪能していただけるダイニング。</p>
+            </div>
+            <div class="cuisine-dining-element">
+                <div class="cuisine-subtitle">TEPPAN DINING |&nbsp<span class="kanji-font"> 海賊の
+                                                                                            <ruby>饗宴<rt>あさか</rt></ruby></span></div>
+                <img class= "cuisine-image-teppan-dining" src="wp-content/plugins/my-snow-monkey/assets/images/teppan-dining.png" alt="Teppan Dining">
+                <p class="cuisine-text">海人族が日常で楽しんだ、または遠征時に豪快に味わったとされる食文化をテーマにした「活力あふれる食」のレストラン。鉄板焼きと炭火料理を中心に、自然の力強さを表現。</p>
+            </div>
+            <div class="cuisine-dining-element">
+                <div class="cuisine-subtitle">KINOKO CUISINE |&nbsp<span class="kanji-font">きのこ</span></div>
+                <img class= "cuisine-image-kinoko-cuisine" src="wp-content/plugins/my-snow-monkey/assets/images/kinoko-cuisine.png" alt="Kinoko Cuisine">
+                <p class="cuisine-text">キノコの健康効果を最大限に生かしたメニューと体験を通じて、現代人が求める「ウェルネス」と「美味しさ」を両立した食の提供を目指します。</p>
+            </div>
+            <div class="cuisine-dining-element">
+                <div class="cuisine-subtitle">ARTISANAL SAKE |&nbsp<span class="kanji-font">日本酒</span></div>
+                <img class= "cuisine-image-artisanal-sake" src="wp-content/plugins/my-snow-monkey/assets/images/artisanal-sake.png" alt="Artisanal Sake">
+                <p class="cuisine-text">宿内に日本酒をテーマにしたバーエリアを設け、淡路島や近隣の地酒を中心に多様な銘柄を楽しめる空間を提供。五感で日本酒文化の深みを体験できます。</p>
+            </div>
+        </div>
+    </div>
+</div>
