@@ -1,0 +1,1851 @@
+@charset "UTF-8";
+
+/* VARIABLES *//* --------------------- *//* --------------------- *//* --------------------- */
+:root {
+    --mobile-title-size: 1.2rem;
+    --mobile-font-size: 1rem; 
+    --mobile-padding: 20px;
+}
+
+#body > div.l-container > header {
+    display: none;
+}
+
+html[data-sticky-footer=true] .l-container {
+    min-height: 100svh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Zen Old Mincho", "Federo";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+/* OVERRIDE */
+#body > div.l-container > header > div > div > div > div > div:nth-child(2),
+#body > div.l-container > header > div > div > div > div > div:nth-child(3) {
+    display: block !important;
+}
+
+/* HIDE SNOWMONKEY HAMBURGER MENU */
+#body > div.l-container > header > div > div > div > div > div.c-row__col.c-row__col--fit.u-invisible-lg-up {
+    display: none;
+}
+
+/* MAKE BACKGROUND */
+.l-container {
+    width: 100%;
+    height: 100svh;
+    background: 
+                url('./assets/images/new-hero.png') no-repeat center center/cover;
+    background-attachment: fixed; /* Optional: Parallax effect */
+}
+
+/* .l-container {
+    width: 100%;
+    height: 100svh;
+    background: url('./assets/images/new-hero.png') no-repeat center center;
+    background-size: contain;
+    background-attachment: fixed; 
+} */
+
+
+.l-header {
+    background-color: transparent;
+    color: white;
+    position: relative;
+}
+
+.l-footer {
+    display: none;
+}
+
+#body > div.l-container > header {
+    box-shadow: none;
+    padding: min(calc(4 * 1440px / 100), 4vw) min(calc(6 * 1440px / 100), 6vw);
+}
+
+/* NAVIGATION */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: min(calc(5 * 1440px / 100), 5vw) 0;
+    background-color: transparent;
+    gap: min(calc(15 * 1440px / 100), 15vw);
+}
+
+.nav-logo img {
+    height: min(calc(3.3 * 1440px / 100), 3.3vw);
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure image keeps proportions */
+}
+
+/* Make sure the parent .nav-logo has a defined height */
+.nav-logo {
+    height: min(calc(2 * 1440px / 100), 2vw);
+    display: flex; /* Helps with alignment */
+    align-items: center; /* Centers image vertically */
+}
+
+.nav-links {
+    font-family: "Federo";
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: min(calc(2 * 1440px / 100), 2vw);
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+}
+
+.nav-links a {
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 50%;
+}
+
+#body > div.l-container > div.l-contents > div > div > div > main > div.hero-container > img {
+    max-width: calc(40 * 1440px / 100);
+    /* width: clamp(20%, 20vh, 30svw); */
+    margin-top: 6vw;
+    display: flex;
+    justify-self: center;
+}
+
+/* HAMBURGER */
+.l-header .c-hamburger-btn__bar {
+    background-color: white;
+}
+
+/* SCROLL TO TOP */
+#page-top {
+    border-radius: 50%;
+    margin: min(calc(3 * 1440px / 100), 3vw);
+    border: 1px solid white;
+    background-color: rgba(73, 111, 139, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: min(calc(3 * 1440px / 100), 3vw);
+    height: min(calc(3 * 1440px / 100), 3vw);
+}
+
+#page-top > a > svg {
+    height: min(calc(1 * 1440px / 100), 1vw);
+}
+
+#page-top:hover {
+    background-color: #496F8B;
+}
+
+/* HERO *//* --------------------- *//* --------------------- *//* --------------------- */
+
+.hero-container {
+    height: 100svh;
+    max-width: 1440px;
+    justify-self: center;
+    position: relative;
+}
+
+.hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    right: 50%; 
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(14, 98, 158, 0.06);
+    z-index: -1; /* Add this to keep background behind content */
+}
+
+/* LOADING LOGO ANIMATION */
+.reserve-now-mobile, .header-logo {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, 
+                transform 1s ease-in-out;
+}
+.scroll-text {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.reserve-now {
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    width: min(calc(9 * 1440px / 100), 9vw);
+    letter-spacing: 0.1em;
+}
+
+.header-container-mobile {
+    text-align: center;
+}
+
+#body > div.l-container > div.l-contents > div > div > div > main > div.hero-container > div.header-container-mobile > img {
+    width: 100%;
+    margin-top: 9vh;
+    margin-bottom: 20px;
+}
+
+.reserve-now-mobile {
+    display: none;
+    position: absolute;
+    top: 64%;
+    letter-spacing: 0.1em;
+}
+
+button {
+    font-family: "Zen Old Mincho";
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+/* CONCEPT *//* --------------------- *//* --------------------- *//* --------------------- */
+.concept-container {
+    padding: min(calc(10 * 1440px / 100), 10vw) 0vw;
+    text-align: left;
+    background-color: white;
+    background: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgb(255, 255, 255, 1)), 
+        url(./assets/images/concept-back.png) no-repeat center center / cover;
+}
+
+.kanji-font {
+    font-family: 'Zen Old Mincho';
+}
+
+.concept-container h3 {
+    font-weight: 900;
+    font-size: min(calc(2 * 1440px / 100), 2vw);
+    display: flex;
+    text-align: left;
+    letter-spacing: 0.2em;
+    align-items: flex-end;
+    color: #000000;
+}
+
+.concept-cool-text h3 {
+    font-family: 'Zen Old Mincho';
+    font-weight: 500;
+    font-size: min(calc(3.4 * 1440px / 100), 3.4vw);
+    text-align: left;
+    letter-spacing: 0.2em;
+    color: #000000;
+}
+
+/* FURIGANA */
+.concept-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: min(calc(4 * 1440px / 100), 4vw);
+}
+
+.concept-info {
+    max-width: min(calc(50 * 1440px / 100), 50vw);
+}
+
+.concept-info h4 {
+    justify-self: center;
+    letter-spacing: 0.2em;
+    font-weight: 900;
+    font-size: min(calc(2 * 1440px / 100), 2vw);;
+}
+
+.concept-text {
+    margin: min(calc(1 * 1440px / 100), 1vw);
+}
+
+/* BASE *//* --------------------- *//* --------------------- *//* --------------------- */
+
+/* CONTAINER TITLES */
+.concept-content h2, .garden-container h2, .hot-spring-container h2, .cuisine-container h2,
+.matcha-container h2, .theater-container h2, .location-container h2, .contact-container h2,
+.cuisine-container h3, .route-content h2 { 
+    font-family: 'Federo';
+    font-weight: 400;
+    font-size: min(calc(2 * 1440px / 100), 2vw);
+    letter-spacing: min(calc(0.4 * 1440px / 100), 0.4vw);
+    color: #496F8B;
+}
+
+.cuisine-container h3 {
+    font-family: 'Zen Old Mincho';
+    font-weight: 900;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    color: #3E131C;
+    padding-bottom: min(calc(2 * 1440px / 100), 2vw);
+}
+
+/* CONTAINER SUBTITLES */
+.hot-spring-container h3, .matcha-container h3, .theater-container h3, .location-container h3 {
+    font-weight: 900;
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    letter-spacing: 0.2em;
+    color: #496F8B;
+}
+
+/* COLOR ADJUSTMENTS */
+.garden-container h2, .matcha-container h2, .location-container h2,
+.matcha-container h3 {
+    color: #709B84;
+}
+.concept-content h2, .cuisine-container h2 {
+    color: #000000;
+    justify-self: center;
+}
+.route-content h2 {
+    justify-self: center;
+    padding-bottom: 2vw;
+    padding-top: min(calc(10 * 1440px / 100), 10vw);
+}
+
+.address {
+    color: #000000;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* CONTAINER CONTENT */
+.garden-content, .hot-spring-content, .matcha-content, .theater-content {
+    gap: min(calc(1 * 1440px / 100), 1vw);
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: end;
+}
+
+/* CONTAINER TEXTS */
+.concept-text, .garden-text, .hot-spring-text, .cuisine-text, .matcha-text, .theater-text {
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    line-height: 160%;
+    letter-spacing: 0.2em; 
+    color: #000000;
+}
+
+/* CONTAINER IMAGES */
+.garden-image, .hot-spring-image, .matcha-image, .theater-image {
+    align-self: end;
+}
+
+
+/* CONTAINERS *//* --------------------- *//* --------------------- *//* --------------------- */
+.garden-container, .theater-container {
+    display: grid; /* Use Grid layout instead of columns */
+    grid-template-columns: 40% 55%;
+    background-color: white;
+    padding: min(calc(14 * 1440px / 100), 15vw) min(calc(10 * 1440px / 100), 10vw);
+    gap: 5%;
+    max-width: 1440px;
+    justify-self: center;
+}
+
+.hot-spring-container, .contact-container, .location-container {
+    display: grid;
+    grid-template-columns: 55% 40%;
+    padding: min(calc(14 * 1440px / 100), 15vw) min(calc(10 * 1440px / 100), 10vw);
+    gap: 5%;
+    max-width: 1440px;
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+}
+
+.hot-spring-container::before, .contact-container::before, .location-container::before, .site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; /* Pull left edge to viewport edge */
+    margin-right: -50vw; /* Pull right edge to viewport edge */
+    width: 100vw;
+    height: 100%;
+    background-image: linear-gradient(rgba(72, 100, 116, 0.2), rgba(72, 100, 116, 0.2)),  
+                    url('./assets/images/washi.png');
+    z-index: -1;
+}
+
+#contact, #access > div.location-container {
+    display: block;
+}
+
+.location-container {
+    padding: min(calc(10 * 1440px / 100), 10vw) min(calc(10 * 1440px / 100), 10vw);
+}
+
+.location-container::before {
+    background-image: linear-gradient(rgba(72, 116, 105, 0.2), rgba(72, 116, 105, 0.2)),  
+                    url('./assets/images/washi.png');
+}
+
+.contact-container::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),  
+                    url('./assets/images/washi.png');
+        /* url('./assets/images/paper copy.jpg');  */
+}
+
+.site-footer::before {
+    background-color: rgba(14, 98, 158, 0.06);
+    background-image: none;
+}
+
+
+
+/* CUISINE *//* --------------------- *//* --------------------- *//* --------------------- */
+.cuisine-container {
+    background-color: white;
+    text-align: left;
+    padding: min(calc(10 * 1440px / 100), 10vw) min(calc(10 * 1440px / 100), 10vw);
+    width: 100vw; /* Ensure the container spans the full width of the viewport */
+    max-width: 1440px;
+    justify-self: center;
+}
+
+.cuisine-content {
+    width: 100%; /* Ensure full width for content */
+    margin: 0 auto; /* Center the content */
+}
+
+.cuisine-dining {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for side-by-side layout */
+    gap: min(calc(2 * 1440px / 100), 2vw);
+}
+
+.cuisine-dining-element {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: left;
+    gap: min(calc(2 * 1440px / 100), 2vw);
+}
+
+.cuisine-subtitle {
+    display: flex;
+    min-height: min(calc(5 * 1440px / 100), 5vw);
+    font-family: 'Federo';
+    font-weight: 400;
+    font-size: min(calc(2 * 1440px / 100), 2vw);
+    align-items: flex-end;
+    text-align: left;
+    letter-spacing: 0.12em;
+    color: #3E131C;
+}
+
+/* CUSINE IMAGES */
+.cuisine-image-main-dining, .cuisine-image-teppan-dining, .cuisine-image-kinoko-cuisine, .cuisine-image-artisanal-sake {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+
+/* ACCESS *//* --------------------- *//* --------------------- *//* --------------------- */
+.location-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    padding-bottom: min(calc(1.5 * 1440px / 100), 1.5vw);
+    gap: min(calc(1.5 * 1440px / 100), 1.5vw);
+    max-width: 1440px;
+    justify-self: center;
+}
+
+.location-map {
+    border:0;
+    width: 100vw; 
+    height: 65vh;
+}
+
+
+/* CONTACT *//* --------------------- *//* --------------------- *//* --------------------- */
+.contact-container {
+    display: grid;
+    background-color: white;
+    padding: min(calc(10 * 1440px / 100), 10vw) min(calc(10 * 1440px / 100), 10vw);
+    text-align: center;
+    max-width: 1440px;
+    justify-self: center;
+}
+  
+.contact-form {
+    max-width: 35vw;
+    margin: 0 auto;
+}
+  
+.form-group {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+  
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+  
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+  
+.form-group textarea {
+    height: 10rem;
+    resize: vertical;
+}
+  
+.submit-btn {
+    font-family: "Federo";
+    width: min(calc(10 * 1440px / 100), 10vw);
+    height: min(calc(3 * 1440px / 100), 3vw);
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+  
+.submit-btn:hover {
+    background-color: #ffffff;
+    color: #496F8B;
+    outline: 1px solid #496F8B; /* Add an outline with the desired color */
+}
+
+#wpcf7-f853-p30-o1 > form > div.contact-form > p > input {
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    border-radius: 50px;
+    padding: 0;
+    line-height: 1;
+    padding-block-start: 1px;
+}
+
+/* #wpcf7-f853-p30-o1 > form > div.contact-form > p {
+    padding-top: 5vw;
+} */
+
+/* input.wpcf7-form-control.wpcf7-submit {
+    padding: 0 !important;
+} */
+
+#wpcf7-f853-p30-o1 > form > div.contact-form > p > span {
+    display: initial;
+    margin: 0;
+}
+
+
+/* FOOTER *//* --------------------- *//* --------------------- *//* --------------------- */
+.site-footer {
+    font-family: "Federo";
+    position: relative; /* Add this */
+    padding: min(calc(4 * 1440px / 100), 4vw) 0;
+    color: white;
+    max-width: 1440px;
+    justify-self: center;
+    z-index: 1; /* Add this to keep content above background */
+}
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    right: 50%; 
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(73, 111, 139);
+    z-index: -1; /* Add this to keep background behind content */
+}
+  
+.footer-column a {
+    text-decoration: none;
+    line-height: 160%;
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    align-self: center;
+    letter-spacing: 0.2em;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+  
+.footer-column a:hover {
+    opacity: 0.5;
+}
+  
+.footer-copyright {
+    font-size: min(calc(0.8 * 1440px / 100), 0.8vw);
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center; /* Center all children horizontally */
+    align-items: center; /* Align all children vertically */
+    margin-bottom: min(calc(1.2 * 1440px / 100), 1.2vw);
+    gap: min(calc(5 * 1440px / 100), 5vw)
+}
+
+.footer-logo img {
+    width: min(calc(20 * 1440px / 100), 20vw);
+    height: auto;
+}
+  
+.footer-column {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: min(calc(1.2 * 1440px / 100), 1.2vw);
+    align-items: flex-start; /* Ensures items align to the left */
+    width: fit-content; /* Shrink-wraps the column to fit the content */
+}
+
+.footer-right {
+    display: grid; /* Enables grid layout */
+    grid-template-columns: auto auto; /* Two columns with sizes based on content */
+    gap: min(calc(5 * 1440px / 100), 5vw);
+    width: min(calc(25 * 1440px / 100), 25vw);
+    justify-content: flex-end;
+}
+
+.footer-left {
+    width: min(calc(25 * 1440px / 100), 25vw);
+}
+
+/* STATIC RESERVE *//* --------------------- *//* --------------------- *//* --------------------- */
+.static-reserve {
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);;
+    letter-spacing: 0.1em;
+    position: fixed;
+    top: min(calc(5 * 1440px / 100), 5vw);
+    right: min(calc(8 * 1440px / 100), 8vw);
+    opacity: 0;
+    width: min(calc(9 * 1440px / 100), 9vw);
+    height: min(calc(3 * 1440px / 100), 3vw);
+    background-color: rgba(73, 111, 139, 0.5);
+    border: 1px solid white; /* Adds a white border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.static-reserve.show {
+    opacity: 1;
+}
+
+.static-reserve:hover {
+    background-color: #496F8B;
+    color: white;
+}
+
+/* CIRCLE MENU *//* --------------------- *//* --------------------- *//* --------------------- */
+.circle-menu {
+    position: fixed;
+    top: min(calc(5 * 1440px / 100), 5vw);
+    right: min(calc(3 * 1440px / 100), 3vw);
+    width: min(calc(3 * 1440px / 100), 3vw);
+    height: min(calc(3 * 1440px / 100), 3vw);
+    background-color: rgba(73, 111, 139, 0.5);
+    border: 1px solid white; /* Adds a white border */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.circle-menu.show {
+    opacity: 1;
+}
+
+.circle-menu.close::before,
+.circle-menu.close::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 1px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.circle-menu.close::after {
+    transform: rotate(-45deg);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: min(calc(1 * 1440px / 100), 1vw);
+    width: min(calc(1.2 * 1440px / 100), 1.2vw);
+    opacity: 1; /* Add this */
+    transition: opacity 0.3s ease; /* Add this */
+}
+
+.circle-menu.close .hamburger {
+    opacity: 0; /* Hide hamburger when menu is closed */
+}
+
+/* Hamburger lines */
+.hamburger div {
+    width: 100%;
+    height: min(calc(0.1 * 1440px / 100), 0.1vw);
+    background-color: white;
+    border-radius: 2px;
+    transition: opacity 0.3s ease; /* Add this */
+}
+
+.circle-menu.close .hamburger div {
+    opacity: 0; /* Hide hamburger lines when closed */
+}
+
+/* Slide-in menu */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(calc(32.4 * 1440px / 100), 32.4vw);
+    height: 100%;
+    background-color: rgba(73, 111, 139, 0.7);
+    color: white;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+    padding-left: min(calc(5 * 1440px / 100), 5vw);
+    z-index: 1000;
+    padding-top: min(calc(15 * 1440px / 100), 20svh);
+    transform: translateX(100%); /* Initially hide off-screen */
+    transition: transform 0.3s ease-in-out, visibility 0s 0.3s; /* Ensure visibility toggles after animation */
+    visibility: hidden; /* Fully hidden when off-screen */
+}
+
+.menu.show {
+    transform: translateX(0); /* Slide into view */
+    visibility: visible; /* Make visible */
+    transition: transform 0.3s ease-in-out, visibility 0s 0s; 
+}
+
+.menu ul {
+    list-style: none;
+    display: grid;
+}
+
+.menu li {
+    margin: min(calc(0.5 * 1440px / 100), 0.5vw) 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-family: 'Federo';
+    line-height: 160%;
+    font-weight: 400;
+    font-size: min(calc(1.8 * 1440px / 100), 1.8vw);
+    letter-spacing: 0.2em;
+    color: #FFFFFF;
+    transition: opacity 0.3s ease;
+}
+
+.menu li:hover {
+    opacity: 0.5;
+}
+
+.circle-menu {
+    /* Keep your existing styles */
+    transition: background-color 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+.circle-menu:hover {
+    background-color: #496F8B;
+}
+
+.circle-menu:not(.show),
+.static-reserve:not(.show) {
+    pointer-events: none;
+}
+
+.circle-menu,
+.static-reserve {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Add any other transition properties you're using */
+}
+
+.side-reserve {
+    width: min(calc(12 * 1440px / 100), 12vw);
+    margin-top: min(calc(4 * 1440px / 100), 4vw);
+    font-size: min(calc(1.6 * 1440px / 100), 1.6vw);
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 0;
+    line-height: 1;
+    padding-block-start: 0.7rem;
+    padding-block-end: calc(0.7rem + 1px);
+
+}
+
+.side-logo {
+    width: min(calc(10 * 1440px / 100), 10vw);
+    position: absolute;
+    top: min(calc(5.5 * 1440px / 100), 5.5vw);
+}
+
+.scroll-text-mobile, .header-container-mobile {
+    display: none;
+}
+
+.scroll-text {
+    line-height: 160%;
+    position: absolute;
+    bottom: 25svh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+    font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+    text-align: center; 
+    color: white;
+    width: 80%;
+    font-weight: 500;
+}
+
+/* SCROLL INDICATOR *//* --------------------- *//* --------------------- *//* --------------------- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-line {
+    width: min(calc(0.1 * 1440px / 100), 0.1vw);
+    height: 25svh;
+    background: linear-gradient(to bottom, rgba(204, 204, 204, 0) 0%, #ccc 20%, #ccc 80%, rgba(204, 204, 204, 0) 100%);
+    position: relative; /* Add this */
+    overflow: hidden;
+}
+
+.scroll-square {
+    width: min(calc(0.3 * 1440px / 100), 0.3vw);
+    height: min(calc(2.5 * 1440px / 100), 2.5vw);
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), #ffffff); */
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollSquaresAnimation 2.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes scrollSquaresAnimation {
+    0% {
+        top: 0;
+        opacity: 0.3;
+    }
+    
+    85% {
+        top: calc(100% - min(calc(2.5 * 1440px / 100), 2.5vw)); /* Subtract square height */
+        opacity: 1;
+    }
+
+    100% {
+        top: calc(100% - min(calc(2.5 * 1440px / 100), 2.5vw));
+        opacity: 0;
+    }
+}
+
+
+/* MOBILE STYLING *//* --------------------- *//* --------------------- *//* --------------------- */
+@media (max-width: 768px) { 
+
+    .l-container {
+        background: linear-gradient(rgba(22, 60, 87, 0.7), rgba(128, 128, 128, 0.3)), 
+                url('./assets/images/Ama no Yado Mobile Centered copy.png') no-repeat center center/cover;
+    }
+
+    /* NAVIGATION TOP */
+    .main-nav {
+        display: none;
+    }
+
+    .reserve-now-mobile {
+        display: block;
+        height: 50px;
+        justify-self: center;
+        width: 170px;
+    }
+
+    #body > div.l-container > div.l-contents > div > div > div > main > div.hero-container > img {
+        position: initial;
+        width: 50%;
+        margin: 9vh;
+        background-size: contain;
+        justify-self: center;
+        display: none;
+    }
+
+    /* CONTAINER */
+    .l-container {
+        background-attachment: initial;
+    }
+
+    .l-header {
+        padding-left: 0px;
+    }
+
+    #body > div.l-container > header {
+        padding: 0;
+    }
+
+    /* CIRCLE MENU AND LOGO */
+    #body > div.l-container > header, #menu > div {
+        display: none;
+    }
+
+    .circle-menu {
+        top: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .hamburger {
+        width: 20px;
+        height: 15px;
+    }
+
+    .hamburger div {
+        height: 2px;
+    }
+
+    .menu {
+        width: 50%;
+        padding-top: 150px;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+    #page-top {
+        border-radius: 50%;
+        margin: 3.25vw;
+        border: 1px solid white;
+        background-color: rgba(73, 111, 139, 0.5);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        width: 40px;
+        height: 40px;
+    }
+    
+    #page-top > a > svg {
+        height: 20px;
+    }
+
+    /* HERO MOBILE */
+    .hero-container {
+        display: grid;
+        padding: var(--mobile-padding);
+        height: 100svh;
+    }
+
+    .reserve-now {
+        font-size: 4vw;
+        margin: 15vw 0;
+        display: block;
+        justify-self: center;
+        width: 150px;
+        height: fit-content;
+    }
+
+    /* CONCEPT MOBILE */ 
+    .concept-container {
+        padding: 80px var(--mobile-padding);
+    }
+
+    .concept-container h2 {
+        font-size: var(--mobile-title-size);
+    }
+
+    .concept-container h3 {    
+        font-size: 3.5vw;
+        padding-bottom: var(--mobile-padding);
+    }
+
+    .concept-cool-text h3 {
+        font-size: 6vw;
+    }
+
+    .concept-info h4 {
+        font-size: 3.5vw;
+    }
+    
+
+    .concept-content {
+        gap: 8vw;
+    }
+
+    .concept-info {
+        max-width: none;
+    }
+
+    /* CONTAINER MOBILE */
+    .garden-container, .hot-spring-container, .cuisine-container, .matcha-container, .theater-container {
+        display: flex; /* Use Flexbox for stacking */
+        flex-direction: column; /* Stack text and image vertically */
+        padding: 10vw 4vw;
+        gap: 4vw;
+    }
+
+    
+
+    .garden-container h2 {
+        padding-bottom: 10px;
+    }
+
+    /* CONTAINER TITLE MOBILE */
+    .garden-container h2, .hot-spring-container h2, .cuisine-container h2, 
+    .matcha-container h2, .theater-container h2, .location-container h2, .contact-container h2, .route-content h2 {
+        font-size: var(--mobile-title-size);
+        text-align: center;
+        align-self: center; /* Ensure title is centered in its container */
+        justify-self: center;
+    }
+
+    /* CONTAINER TEXT MOBILE */
+    .hero-text, .concept-text, .garden-text, .hot-spring-text, .cuisine-text, 
+    .matcha-text, .theater-text {
+        font-size: var(--mobile-font-size);
+    }
+
+    /* CONTAINER SUBTITLE MOBILE */
+    .hot-spring-container h3, .cuisine-container h3, .matcha-container h3, .theater-container h3,
+    .address {
+
+        font-size: var(--mobile-font-size);
+        align-self: center; /* Ensure title is centered in its container */
+        margin: 0; /* Remove any default margins */
+    }
+
+    /* SOME IMAGES MOBILE */
+    .hot-spring-image, .matcha-image, .cuisine-image { 
+        order: 2; 
+    }
+
+    /* CUSINE MOBILE */
+    .cuisine-dining {
+        display: block;
+        padding: 0;
+    }
+
+    .cuisine-dining-element {
+        gap: 1vw;
+        margin-bottom: 5vw; 
+    }
+
+    .cuisine-content {
+        display: grid;
+        flex-direction: column; /* Stack text items vertically */
+        justify-content: center; /* Vertically center the content */
+        gap: 0px; /* Add spacing within the text content */
+        height: auto; /* Allow content to determine height */
+    }
+    
+    .cuisine-subtitle {
+        display: initial;
+        font-size: 1.1rem;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    /* ACCESS MOBILE */
+    .location-container {
+        display: flex; /* Use Flexbox for stacking */
+        flex-direction: column; /* Stack items vertically */
+        gap: 0px;
+        padding: var(--mobile-padding);
+        padding-top: 40px;
+    }
+
+    /* CONTACT MOBILE */
+    .contact-container {
+        padding: var(--mobile-padding);
+        padding-bottom: 40px;
+    }
+
+    .contact-form {
+        max-width: none;
+    }
+
+    #wpcf7-f853-p30-o1 > form > div.contact-form > p > input {
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+    }
+
+    /* FOOTER MOBILE */
+    .site-footer {
+        padding: 10vw 0;
+    }
+
+    .footer-column {
+        justify-self: center;
+    }
+
+    .footer-column a {
+        font-size: var(--mobile-font-size);
+        align-self: center;
+    }
+
+    .footer-links {
+        display: grid;
+        gap: 30px;
+    }
+
+    .footer-logo {
+        width: 150px;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 100%;
+    }
+
+    .footer-left {
+        display: grid;
+        width: initial;
+    }
+
+    .footer-right {
+        width: initial;
+        row-gap: 0;
+        padding-bottom: 20px;
+        justify-content: initial;
+    }
+
+    #body > div.l-container > div.l-contents > div > div > div > main > footer > div > div.footer-links > div.footer-left > div {
+        justify-self: center;
+    }
+
+    .footer-copyright {
+        font-size: 10px;
+    }
+    
+    /* SIDE MENU MOBILE */
+    #menu > div > img {
+        display: none;
+    }
+
+    .menu ul {
+        padding: 0;
+        gap: 15px;
+    }
+
+    .menu li {
+        font-size: 4.5vw;
+    }
+
+    .side-reserve {
+        width: 30vw;
+        font-size: 4vw;
+        margin-top: 30px;
+    }
+
+    .side-logo {
+        display: none;
+    }
+
+    /* SCROLL INDICATOR MOBILE */
+    .scroll-text {
+        bottom: 50%;
+        width: 92%;
+        font-size: var(--mobile-font-size);
+        display: none;
+    }
+
+    .scroll-text-mobile {
+        display: block;
+        color: white;
+        font-size: var(--mobile-font-size);
+        width: 80%;
+        margin: 10px;
+        justify-self: center;
+    }
+
+    .header-container-mobile {
+        display: block;
+    }
+
+    .scroll-line {
+        width: 0.3vw;
+    }
+
+    .scroll-square {
+        width: 0.6vw;
+        height: 6vw;
+    }
+    
+    .static-reserve {
+        display: none;
+    }
+
+    @keyframes scrollSquaresAnimation {
+        0% {
+            top: 0;
+            opacity: 0.3;
+        }
+        85% {
+            top: calc(100% - min(calc(5 * 1440px / 100), 5vw)); /* Subtract square height */
+            opacity: 1;
+        }
+        100% {
+            top: calc(100% - min(calc(5 * 1440px / 100), 5vw));
+            opacity: 0;
+        }
+    }
+}
+
+
+
+
+
+
+/* ACCESS SECTION - Main Styles */
+.access-section {
+    background-color: white;
+    padding: 3rem 0 2rem; /* Remove horizontal padding for full-width map */
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 500;
+    overflow: hidden; /* Prevent map overflow */
+  }
+  
+  .access-section h2 {
+    font-family: "Federo";
+    font-size: clamp(1.5rem, 2rem, 2.5vw); /* Reduced size */
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #402639;
+    margin-bottom: 0.5rem; /* Reduced margin for subtitle */
+    position: relative;
+    display: inline-block;
+  }
+  
+  .access-section h2::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background-color: #b99984;
+    bottom: -10px; /* Reduced space */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+
+  /* Tab Navigation */
+  .access-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #f0e6e0;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    padding: 0 1rem;
+  }
+  
+  .access-tab {
+    background: none;
+    border: none;
+    font-family: "Federo";
+    font-size: 0.95rem; /* Slightly smaller */
+    font-weight: 600;
+    color: #806969;
+    padding: 0.7rem 1.5rem; /* Reduced padding */
+    margin: 0 0.8rem; /* Reduced margin */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .access-tab:hover {
+    color: #402639;
+  }
+  
+  .access-tab::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #b99984;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+  
+  .access-tab.active {
+    color: #402639;
+  }
+  
+  .access-tab.active::after {
+    width: 80%;
+  }
+  
+  /* Journey Summary */
+  .journey-summary-container {
+    max-width: 800px; /* Reduced to bring items closer to center */
+    margin: 0 auto 1.5rem; /* Reduced margin */
+    position: relative;
+  }
+  
+  .journey-summary {
+    display: none;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    animation: fadeIn 0.5s ease;
+    margin: 0 auto 2rem; /* Reduced margin */
+  }
+  
+  .journey-summary.active {
+    display: block;
+  }
+  
+  .journey-details {
+    display: flex;
+    justify-content: center; /* Center the items */
+    padding: 0;
+    margin: 0 auto;
+    gap: 6rem; /* Add space between items */
+  }
+  
+  .journey-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto; /* Let it size naturally */
+  }
+  
+  /* Desktop-only and mobile-only content */
+  .desktop-only {
+    display: block;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+  
+  .journey-icon {
+    background-color: rgba(73, 111, 139, 0.2);
+    width: 36px; /* Smaller */
+    height: 36px; /* Smaller */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .journey-content {
+    text-align: center;
+  }
+  
+  .journey-value {
+    font-size: 2.2rem; /* Smaller */
+    margin: 0.2rem 0;
+  }
+  
+  .journey-label {
+    font-size: 0.75rem; /* Smaller */
+    text-align: center;
+    color:#b99984;
+  }
+  
+  /* Routes Container */
+  .routes-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 2rem; /* Reduced margin */
+    min-height: 400px; /* Shorter */
+  }
+  
+  .route-display {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .route-display.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Timeline Container */
+  .timeline-container {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr; /* Narrower center column */
+    gap: 0;
+    margin: 0 auto;
+    max-width: 1000px;
+    min-height: 380px; /* Shorter */
+    position: relative;
+    align-items: stretch;
+  }
+  
+  /* Support for routes with 5 stops */
+  .timeline-container.timeline-five-stops {
+    min-height: 450px; /* Shorter but still taller than 4-stop container */
+  }
+  
+  /* Timeline Side Styling */
+  .timeline-left, .timeline-right {
+    position: relative;
+    padding: 0 15px; /* Reduced padding */
+  }
+  
+  .timeline-left {
+    text-align: right;
+  }
+  
+  .timeline-right {
+    text-align: left;
+  }
+  
+  /* Transport/Driving Items */
+  .transport-item, .driving-item {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 3.5rem; /* Reduced margin */
+  }
+  
+  .transport-item {
+    flex-direction: row-reverse;
+    padding-right: 15px; /* Reduced padding */
+  }
+  
+  .driving-item {
+    padding-left: 15px; /* Reduced padding */
+  }
+  
+  /* Adjust spacing for 5-stop routes
+  .timeline-five-stops .transport-item,
+  .timeline-five-stops .driving-item {
+    /* margin-bottom: 2.8rem; Reduced margin */
+  
+  
+  .icon-container {
+    width: 42px; /* Smaller */
+    height: 42px; /* Smaller */
+    border-radius: 50%;
+    background-color: rgba(73, 111, 139, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12px; /* Reduced margin */
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(185, 153, 132, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .transport-item:hover .icon-container,
+  .driving-item:hover .icon-container {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(185, 153, 132, 0.25);
+  }
+  
+  .item-content {
+    max-width: 85%; /* Slightly wider to accommodate smaller space */
+  }
+  
+  .item-content h3 {
+    font-family: "Federo";
+    font-size: 1rem; /* Smaller */
+    color: #292b2f;
+    margin-bottom: 0.2rem; /* Reduced margin */
+    font-weight: 300;
+  }
+  
+  .item-content p {
+    font-family: "Federo";
+    font-size: 0.85rem; /* Smaller */
+    color: #496F8B;
+    margin-top: 0;
+  }
+  
+  .timeline-center {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 32rem; /* Shorter */
+  }
+  
+  /* Adjust height for 5-stop timelines */
+  .timeline-five-stops .timeline-center {
+    height: 38rem; /* Shorter */
+  }
+  
+  /* Timeline Line Styling - Dynamic lengths */
+  .timeline-center-line {
+    position: absolute;
+    top: 3%;
+    width: 1px;
+    background-color: #f0e6e0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 68%;
+  }
+  
+  .timeline-five-stops .timeline-center-line {
+    height: 78.5%;
+  }
+  
+  .progress-line {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+  }
+  
+  .timeline-five-stops .progress-line {
+    height: 95%;
+  }
+  
+  .progress-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #b99984;
+    animation: progressLine 8s ease-in-out infinite;
+  }
+  
+  /* Distance Markers */
+  .distance-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .distance-marker {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .marker-dot {
+    width: 10px; /* Smaller */
+    height: 10px; /* Smaller */
+    border-radius: 50%;
+    background-color: #f0e6e0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  
+  .dot-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b99984;
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .marker-dot.filled .dot-fill {
+    transform: scale(1);
+  }
+  
+  .marker-label {
+    position: absolute;
+    font-family: 'Italiana', serif;
+    font-size: 0.75rem; /* Smaller */
+    color: #b99984;
+    white-space: nowrap;
+  }
+  
+  .marker-label.right {
+    left: 18px; /* Closer */
+  }
+  
+  .marker-label.left {
+    right: 18px; /* Closer */
+    left: auto;
+  }
+  
+  /* Icons with colors */
+  .fa-solid {
+    color: #b99984;
+    font-size: 0.9em; /* Slightly smaller icons */
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes progressLine {
+    0% { height: 0%; }
+    85% { height: 100%; }
+    95%, 100% { height: 100%; }
+  }
+  
+  /* Improved Responsive Styles */
+  @media screen and (max-width: 992px) {
+    .access-section {
+      padding: 3rem 0 2rem;
+    }
+    
+    
+    /* Show mobile content, hide desktop content */
+    .desktop-only {
+      display: none;
+    }
+    
+    .mobile-only {
+      display: block;
+    }
+    
+    /* Change journey summary layout for mobile */
+    .journey-summary-container {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+    
+    .journey-details {
+      justify-content: space-around;
+      gap: 0;
+      padding: 0 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .journey-item {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .journey-content {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .journey-value {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    
+    .journey-label {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    
+    /* Add headers to clearly identify each section on mobile */
+    .timeline-left::before,
+    .timeline-right::before {
+      content: "";
+      display: block;
+      text-align: center;
+      font-weight: 600;
+      color: #402639;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      position: relative;
+    }
+    
+    .timeline-left::before {
+      content: "Public Transport";
+      border-bottom: 1px solid #f0e6e0;
+      padding-bottom: 0.5rem;
+    }
+    
+    .timeline-right::before {
+      content: "By Car";
+      border-bottom: 1px solid #f0e6e0;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+    
+    .timeline-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .timeline-center {
+      display: none;
+    }
+    
+    .transport-item, .driving-item {
+      margin-bottom: 1.5rem;
+      padding: 0.8rem;
+      border-radius: 8px;
+      background-color: rgba(73, 111, 139, 0.2);
+      box-shadow: 0 2px 6px rgba(185, 153, 132, 0.1);
+    }
+    
+    .transport-item {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-right: 0.8rem;
+    }
+    
+    .timeline-left, .timeline-right {
+      text-align: left;
+      padding: 0;
+      padding-left: 1rem;
+    }
+    
+    /* Add numbering to timeline items for better readability */
+    .transport-item::before,
+    .driving-item::before {
+      content: attr(data-step);
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      width: 20px;
+      height: 20px;
+      background-color: #b99984;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .access-section {
+      padding: 2.5rem 0 2rem;
+    }
+    
+    .access-section h2 {
+      margin-bottom: 0.3rem;
+    }
+    
+    .address-subtitle {
+      margin-bottom: 1rem;
+    }
+    
+    .access-tabs {
+      flex-wrap: wrap;
+      padding: 0;
+    }
+    
+    .access-tab {
+      padding: 0.6rem 0.8rem;
+      margin: 0 0.3rem;
+      font-size: 0.85rem;
+    }
+    
+    .journey-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .icon-container {
+      width: 36px;
+      height: 36px;
+      margin: 0 0.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .access-section {
+      padding: 2rem 0 1.5rem;
+    }
+    
+    .access-section h2 {
+      font-size: 1.5rem;
+    }
+    
+    .address-subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .access-tab {
+      padding: 0.5rem 0.6rem;
+      font-size: 0.8rem;
+      margin: 0 0.2rem;
+    }
+    
+    .journey-details {
+      padding: 0;
+    }
+    
+    .journey-value {
+      font-size: 1.3rem;
+    }
+    
+    .journey-label {
+      font-size: 0.7rem;
+    }
+    
+    .item-content h3 {
+      font-size: 0.9rem;
+    }
+    
+    .item-content p {
+      font-size: 0.8rem;
+    }
+    
+    /* Better spacing for mobile items */
+    .transport-item, .driving-item {
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    
+    .marker-label.left, .marker-label.right {
+      font-size: 0.75rem;
+    }
+  }
