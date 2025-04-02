@@ -1,0 +1,262 @@
+<div class="carousel-container">
+    <style>
+        .carousel-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 min(calc(10 * 1440px / 100), 10vw);
+        }
+        .carousel-container h3 {
+            font-family: 'Federo';
+            font-size: min(calc(1.2 * 1440px / 100), 1.2vw);
+            font-weight: 400;
+            color: white;
+            padding-bottom: 0;
+        }
+        .carousel-overflow {
+            overflow: hidden; /* Move overflow hidden to this inner container */
+        }
+        .carousel-wrapper {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            flex: 0 0 calc((100% - 40px) / 3);
+            position: relative;
+        }
+        .carousel-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .carousel-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(62, 19, 28, 0.5);
+            padding: 10px;
+            text-align: center;
+        }
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(62, 19, 28, 0.5);
+            color: white;
+            border: none;
+            width: min(calc(3 * 1440px / 100), 3vw);
+            height: min(calc(3 * 1440px / 100), 3vw);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        .carousel-nav-btn:hover {
+            background: rgba(62, 19, 28, 0.9);
+        }
+        .carousel-nav-btn svg {
+            width: min(calc(1.5 * 1440px / 100), 1.5vw);
+            height: min(calc(1.5 * 1440px / 100), 1.5vw);
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .carousel-nav-btn.prev {
+            left: min(calc(5 * 1440px / 100), 5vw);
+        }
+        .carousel-nav-btn.next {
+            right: min(calc(5 * 1440px / 100), 5vw);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 0 30px; /* Smaller padding on mobile */
+            }
+            .carousel-item {
+                flex: 0 0 100%; /* Single item per view on mobile */
+            }
+            .carousel-image {
+                height: 300px; /* Shorter images on mobile */
+            }
+            .carousel-title h2 {
+                font-size: 16px; /* Smaller title text */
+            }
+            .carousel-nav-btn {
+                width: 36px; /* Fixed size for buttons on mobile */
+                height: 36px;
+            }
+            .carousel-nav-btn svg {
+                width: 16px; /* Fixed size for icons on mobile */
+                height: 16px;
+            }
+            .carousel-nav-btn.prev {
+                left: 10px;
+            }
+            .carousel-nav-btn.next {
+                right: 10px;
+            }
+        }
+        
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .carousel-container {
+                padding: 0 20px; /* Even smaller padding */
+            }
+            .carousel-image {
+                height: 250px; /* Even shorter images */
+            }
+            .carousel-nav-btn {
+                width: 30px; /* Smaller buttons */
+                height: 30px;
+            }
+            .carousel-nav-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    </style>
+    <button class="carousel-nav-btn prev">
+        <svg viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+    </button>
+    <div class="carousel-overflow">
+        <div class="carousel-wrapper">
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/appetizer-one.png" alt="Appetizer" class="carousel-image">
+                <div class="carousel-title">
+                    <h3>APPETIZER |&nbsp<span class="kanji-font">前菜</span></h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/main-one.png" alt="Main Course" class="carousel-image">
+                <div class="carousel-title">
+                    <h3>MAIN |&nbsp<span class="kanji-font">主菜</span></h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/dessert-one.png" alt="Dessert" class="carousel-image">
+                <div class="carousel-title">
+                    <h3>DESSERT |&nbsp<span class="kanji-font">デザート</span></h3>
+                </div> 
+            </div>
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/appetizer-one.png" alt="Appetizer" class="carousel-image">
+                <div class="carousel-title">
+                    <h3>APPETIZER |&nbsp<span class="kanji-font">前菜</span></h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/main-one.png" alt="Main Course" class="carousel-image">
+                <div class="carousel-title">
+                <h3>MAIN |&nbsp<span class="kanji-font">主菜</span></h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="wp-content/plugins/my-snow-monkey/assets/images/dessert-one.png" alt="Dessert" class="carousel-image">
+                <div class="carousel-title">
+                <h3>DESSERT |&nbsp<span class="kanji-font">デザート</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-nav-btn next">
+        <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6"></path>
+        </svg>
+    </button>
+
+    <script>
+        const carouselContainer = document.currentScript.closest('.carousel-container');
+        const wrapper = carouselContainer.querySelector('.carousel-wrapper');
+        const prevBtn = carouselContainer.querySelector('.prev');
+        const nextBtn = carouselContainer.querySelector('.next');
+        const items = carouselContainer.querySelectorAll('.carousel-item');
+        const gap = 20; // Match the gap size in CSS
+        const totalItems = items.length;
+        let visibleItems = 3; // Default for desktop
+        let currentPosition = 0;
+        
+        function updateCarousel() {
+            // Check viewport width to determine visible items
+            const viewportWidth = window.innerWidth;
+            if (viewportWidth <= 768) {
+                visibleItems = 1; // Show only 1 item on mobile
+            } else {
+                visibleItems = 3; // Show 3 items on desktop
+            }
+            
+            // Get current item width (responsive)
+            const containerWidth = carouselContainer.querySelector('.carousel-overflow').offsetWidth;
+            const itemWidth = (containerWidth - (gap * (visibleItems - 1))) / visibleItems;
+            
+            // Make sure currentPosition is valid after resize
+            if (currentPosition > totalItems - visibleItems) {
+                currentPosition = totalItems - visibleItems;
+                if (currentPosition < 0) currentPosition = 0;
+            }
+            
+            // Apply the transform
+            wrapper.style.transform = `translateX(-${currentPosition * (itemWidth + gap)}px)`;
+        }
+        
+        // Initialize carousel on load
+        window.addEventListener('load', updateCarousel);
+        
+        // Update carousel on window resize
+        window.addEventListener('resize', updateCarousel);
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPosition < totalItems - visibleItems) {
+                currentPosition++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPosition > 0) {
+                currentPosition--;
+                updateCarousel();
+            }
+        });
+        
+        // Add touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        wrapper.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        wrapper.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance required for swipe
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swiped left - go next
+                if (currentPosition < totalItems - visibleItems) {
+                    currentPosition++;
+                    updateCarousel();
+                }
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swiped right - go previous
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updateCarousel();
+                }
+            }
+        }
+    </script>
+    </div>
